@@ -1,0 +1,33 @@
+{
+  "name": "inventario-app",
+  "version": "0.0.1",
+  "description": "Manejo de inventarios constructora Suarez",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "test": "jest"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "rootDir": "./js"
+  },
+  "author": "Gerald",
+  "license": "ISC",
+  "dependencies": {
+    "flux": "^2.1.1",
+    "react": "^15.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "envify": "^3.4.0",
+    "reactify": "^1.1.1",
+    "uglify-js": "^2.6.2",
+    "watchify": "^3.7.0"
+  }
+}
