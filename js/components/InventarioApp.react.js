@@ -7,13 +7,14 @@ var MenuItem = require('material-ui/lib/menus/menu-item');
 var Card = require('material-ui/lib/card/card');
 var CardActions = require('material-ui/lib/card/card-actions');
 var CardMedia = require('material-ui/lib/card/card-media');
-var FlatButton = require('material-ui/lib/flat-button');
+var RaisedButton = require('material-ui/lib/raised-button');
 var TextField = require('material-ui/lib/text-field');
 
 var InventarioApp = React.createClass({
 	getInitialState: function () {
 		return {
-			open: false
+			open: false,
+			showMenuButton: false
 		}
 	},
 	
@@ -28,7 +29,7 @@ var InventarioApp = React.createClass({
 				<AppBar
     				title="InventarioApp"
     				onLeftIconButtonTouchTap={this._handleMenu}
-    				iconElementRight={<FlatButton label="Salir" />}
+    				showMenuIconButton={this.state.showMenuButton}
   				/>
   				<LeftNav
 	  				open={this.state.open}
@@ -50,7 +51,7 @@ var InventarioApp = React.createClass({
 			      floatingLabelText="Password`"
 			      type="password"
 			    /><br/>
-			    <FlatButton label="Login" color/>
+			    <RaisedButton label="Login" primary={true} style={{marginTop:'20'}}/>
 			    </div>
         	</div>
 		);
