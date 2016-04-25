@@ -1,18 +1,11 @@
 import React from 'react';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {deepOrange500} from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-
-const muiTheme = getMuiTheme({
-  palette: {
-    accent1Color: deepOrange500,
-  },
-});
 
 class InventarioApp extends React.Component {
 	
@@ -24,10 +17,6 @@ class InventarioApp extends React.Component {
 		};
 	}
 
-	getStyles() {
-    	let spacing = this.context.muiTheme.spacing;
-  	}
-
 	handleMenu(){
 		console.log(this);
 		this.setState({drawerOpened: !this.state.drawerOpened});
@@ -35,7 +24,7 @@ class InventarioApp extends React.Component {
 
 	render() {
 		return (
-			<MuiThemeProvider muiTheme={muiTheme}>
+			<MuiThemeProvider muiTheme={getMuiTheme()}>
 				<div>
 					<AppBar
 	    				title="InventarioApp"
@@ -69,10 +58,6 @@ class InventarioApp extends React.Component {
         	</MuiThemeProvider>
 		);
 	}
-}
-
-InventarioApp.contextTypes = {
-  muiTheme: React.PropTypes.object
 }
 
 export default InventarioApp;
